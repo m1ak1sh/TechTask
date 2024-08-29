@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Global_CRM\\Case_FOOBAR\\": "src/"
+    }
+  }
+}
+
