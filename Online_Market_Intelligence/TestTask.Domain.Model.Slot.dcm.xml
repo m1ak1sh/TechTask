@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity
+            table="slot"
+            name="OMI\src\Domain\Model\Slot"
+            repository-class="OMI\src\Infrastructure\Persistence\Doctrine\Repository\SlotRepository">
+
+        <id name="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="start" column="start" type="time" />
+
+        <field name="end" column="end" type="time" />
+
+        <field name="duration" column="duration" type="integer" />
+
+        <many-to-one
+                field="doctor" target-entity="OMI\src\\Domain\Model\Doctor" mapped-by="id" fetch="LAZY">
+        </many-to-one>
+
+        <many-to-one
+                field="time_work" target-entity="OMI\src\\Domain\Model\TimeWork" mapped-by="id" fetch="LAZY">
+        </many-to-one>
+
+    </entity>
+
+</doctrine-mapping>
